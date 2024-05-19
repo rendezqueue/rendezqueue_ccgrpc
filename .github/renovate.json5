@@ -3,10 +3,13 @@
   "extends": [
     "config:base"
   ],
+  "baseBranches": [
+    "update",
+  ],
   "packageRules": [{
     "matchPackagePatterns": ["*"],
     "branchPrefix": "renovate-fork/",
-    "labels": ["dependencies"],
+    "labels": ["update"],
     "matchUpdateTypes": ["major", "minor", "patch"],
     // Group version update PRs into one.
     "groupName": "all dependencies",
