@@ -3,6 +3,7 @@
   "extends": [
     "config:base"
   ],
+  "baseBranch": "update",
   "baseBranches": [
     "update",
   ],
