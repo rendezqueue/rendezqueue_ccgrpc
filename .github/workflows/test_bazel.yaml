@@ -4,7 +4,18 @@ on: [push, pull_request]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - platform: ubuntu-latest
+          cxxopt: -std=c++17
+        - platform: macos-latest
+          cxxopt: -std=c++17
+        - platform: windows-latest
+          cxxopt: /std:c++17
+
+    runs-on: ${{ matrix.platform }}
 
     steps:
     - name: Cache Setup
@@ -25,11 +36,13 @@ jobs:
     - name: Build
       run: >
         bazel build
+        --cxxopt=${{matrix.cxxopt}}
         --disk_cache=~/.cache/bazel
         //...
 
     - name: Test
       run: >
         bazel test
+        --cxxopt=${{matrix.cxxopt}}
         --disk_cache=~/.cache/bazel
         //...
