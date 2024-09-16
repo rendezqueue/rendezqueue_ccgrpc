@@ -1,4 +1,5 @@
 common --registry=https://raw.githubusercontent.com/rendezqueue/rendezqueue_bazel_registry/trunk
+common --registry=https://raw.githubusercontent.com/grencez/tmp_bazel-central-registry/fildesh
 common --registry=https://raw.githubusercontent.com/bazelbuild/bazel-central-registry/main
 common --cxxopt=-std=c++17
 
